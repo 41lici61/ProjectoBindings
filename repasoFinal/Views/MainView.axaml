@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:repasoFinal.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="repasoFinal.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <Grid Background="Black">
+      <Border Width="252" Height="352" BorderBrush="Chartreuse" BorderThickness="2">
+          <StackPanel Width="250" Height="350" Background="Transparent" >
+              
+              <TextBlock Margin="10, 10, 10, 10" HorizontalAlignment="Center" Foreground="Chartreuse" Text="Login" FontFamily="Consolas" FontSize="30"></TextBlock>
+              <TextBlock Margin="10, 10, 10, 0"  Foreground="Chartreuse" Text="Name" FontFamily="Consolas" FontSize="20"></TextBlock>
+              <TextBox Margin="10, 10, 10, 10"  Foreground="Chartreuse" Watermark="user" FontFamily="Consolas" FontSize="20"></TextBox>
+              <TextBlock Margin="10,10,10,0" Foreground="Chartreuse" Text="Password" FontFamily="Consolas" FontSize="20"></TextBlock>
+              <TextBox Margin="10" Foreground="Chartreuse" FontFamily="Consolas" FontSize="20" PasswordChar="*" ></TextBox>
+              <Button Foreground="Chartreuse" Margin="15" Content="Enter" HorizontalAlignment="Center"></Button>
+              
+              <HyperlinkButton Command="{Binding openCommand}" Margin="15" FontFamily="Consolas" FontSize="15" Foreground="Chartreuse" HorizontalAlignment="Center" Content="Sign in"></HyperlinkButton>
+              
+          </StackPanel>
+      </Border>
+      
+      <Grid x:Name="Overlay" IsVisible="{Binding IsOpen}" HorizontalAlignment="Stretch"
+            Width="350" Height="350"
+            VerticalAlignment="Stretch">
+          <Grid.Background>
+              <SolidColorBrush Opacity=".8" Color="Black"></SolidColorBrush>
+          </Grid.Background>
+          <Border BorderBrush="Chartreuse" Width="349" Height="349" BorderThickness="2" CornerRadius="10"
+                  HorizontalAlignment="Center">
+              <StackPanel HorizontalAlignment="Center" Margin="10">
+                  <TextBlock Text="No function yet" Margin="10" FontSize="15" Foreground="Chartreuse"></TextBlock>
+                  <Button Foreground="Chartreuse" Margin="15" Content="OK" HorizontalAlignment="Center"></Button>
+                  <Button Command="{Binding closeCommand}" Foreground="Chartreuse" Margin="15" Content="Back" HorizontalAlignment="Center"></Button>
+              </StackPanel>
+          </Border>
+          
+      </Grid>
+      
+      
+  </Grid>
+    
+</UserControl>
